@@ -23,14 +23,19 @@ Or from local files: (You will need download `ko-engine.js` file)
 Demo at: https://basemax.github.io/ko-engine/example.html
 
 ```
+// #app
 KoEngine("Hello, I'm <?name?> and It's my GitHub profile: <?github?>.", {
     name: "Max",
     github: "<a href='https://github.com/basemax'>@BaseMax</a>"
 }, '#app');
+```
 
+```
 // #test1
 KoEngine("Hello, It's a plain text!", '#test1');
+```
 
+```
 // #test2
 var request = new XMLHttpRequest();
 request.onreadystatechange = function() {
@@ -40,18 +45,28 @@ request.onreadystatechange = function() {
 };
 request.open("GET", "https://api.ipify.org/", true);
 request.send();
+```
 
-// #test3
+```
+// test3
 console.log( KoEngine("Hello, It's a plain text!") );
+```
 
-// #test4
+```
+// test4
 console.log( KoEngine("Hello, I'm <?name?> and It's my GitHub profile: <?github?>.", {
     name: "Max",
     github: "<a href='https://github.com/basemax'>@BaseMax</a>"
 }) );
+```
 
+```
 // #test5
 KoEngine("<?if(2>5){?> It's a plain text!<?} else{?>Ha ha<?}?>", '#test5');
+```
+
+```
+// #test6
 KoEngine("<?if(5>2){?> It's a plain text!<?}?>", '#test6');
 ```
 
