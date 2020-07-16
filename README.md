@@ -78,6 +78,8 @@ KoEngine("<?if(5>2){?> It's a plain text!<?}?>", '#test6');
 
 ---------
 
+I did get idea from Krasimir work.
+
 # Max Base
 
 My nickname is Max, Programming language developer, Full-stack programmer. I love computer scientists, researchers, and compilers. ([Max Base](https://maxbase.org/))
