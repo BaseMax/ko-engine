@@ -18,6 +18,12 @@ Or from local files: (You will need download `ko-engine.js` file)
 <script type="text/javascript" src="ko-engine.js"></script>
 ```
 
+## Structure of KoEngine
+
+```js
+var KoEngine = function(input, options, target) { ... }
+```
+
 ## Example
 
 Demo at: https://basemax.github.io/ko-engine/example.html
