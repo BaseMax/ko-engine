@@ -6,6 +6,14 @@ JavaScript template engine in just 50 LOC with supporting **replacing variable**
 
 ## Using
 
+From GitHub pages server:
+
+```html
+<script type="text/javascript" src="https://basemax.github.io/ko-engine/source/ko-engine.js"></script>
+```
+
+Or from local files: (You will need download `ko-engine.js` file)
+
 ```html
 <script type="text/javascript" src="ko-engine.js"></script>
 ```
