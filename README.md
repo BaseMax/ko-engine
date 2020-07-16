@@ -2,6 +2,8 @@
 
 JavaScript template engine in just 50 LOC with supporting **replacing variable**, and **javascript** commands such as: `if` and `else`.
 
+— Richard Feynman: What I cannot create, I do not understand. 
+
 ## Using
 
 ```html
@@ -9,6 +11,8 @@ JavaScript template engine in just 50 LOC with supporting **replacing variable**
 ```
 
 ## Example
+
+Demo at: https://basemax.github.io/ko-engine/example.html
 
 ```
 KoEngine("Hello, I'm <?name?> and It's my GitHub profile: <?github?>.", {
