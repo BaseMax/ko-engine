@@ -4,22 +4,33 @@
  * @Repository: https://github.com/basemax/ko-engine
  * @Date: 2020-07-16
  */
- var KoEngine = function(input, options, target) {
-    var re = /\{([^\}]+)?\}/g;
+var KoEngine = function(input, options, target) {
+    var re = /<\?(.+?)\?>/g; // /\<\?([^\?\>]+)?\?\>/g;
+    var commands = /(^( )?(if|else|switch|case|default|break|for|{|}))(.*)?/g;
     var code = 'var code=[];\n';
-    var push = function(line, js) {
-        js? (code += 'code.push(' + line + ');\n')
-        :
-        (code += line != '' ? 'code.push("' + line.replace(/"/g, '\"') + '");\n' : '');
+    var push = function(line, isJS) {
+        if(isJS) {
+            if(line.match(commands)) { //is javascript command...
+                code+=line + '\n'; // TODO: automatic append `(`,`)` and `{`,`}` for `if`` and other commands!
+            }
+            else {
+                code+='code.push(' + line + ');\n';
+            }
+        }
+        else {
+            if(line != '') {
+                code+='code.push("' + line.replace(/"/g, '\"') + '");\n'
+            }
+        }
         return push;
     }
     var match;
-    var cursor = 0;
+    var index = 0;
     while(match = re.exec(input)) {
-        push(input.slice(cursor, match.index))(match[1], true);
-        cursor = match.index + match[0].length;
+        push(input.slice(index, match.index))(match[1], true);
+        index = match.index + match[0].length;
     }
-    push(input.substr(cursor, input.length - cursor));
+    push(input.substr(index, input.length - index));
     code += 'return code.join("");';
     code=code.replace(/[\r\t\n]/g, '');
     // Create function and execute javascript code at $code variable...
